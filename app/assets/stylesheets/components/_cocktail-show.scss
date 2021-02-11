@@ -1,0 +1,11 @@
+.cocktail-details {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.ingredients {
+    li {
+        list-style: none;
+    }
+}
