@@ -1,4 +1,4 @@
-<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= image_path('mojito.jpg')%>);">
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= cl_image_path @cocktail.photos[0].key %>);">
   <div class="container">
     <h1><%= @cocktail.name %></h1>
   </div>
@@ -6,7 +6,11 @@
 
 <div class="container">
   <div class="cocktail-details">
-  
+    <div class="cocktail-img">
+      <% @cocktail.photos.each do |photo| %>
+      <%= cl_image_tag photo.key, height: 500, width: 400, crop: :fill %>
+      <% end %>
+    </div>  
     <ul class="ingredients">
       <% @cocktail.doses.each do |dose| %>
       <li><strong><%= "#{dose.ingredient.name}" %></strong><%= " - #{dose.description} cl | " %><em><%= link_to "delete", dose_path(dose), method: :delete %></em></li>

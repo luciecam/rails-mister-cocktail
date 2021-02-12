@@ -1,12 +1,11 @@
 <%= render 'shared/banner' %> 
 
 <div class="container">
-  <% @cocktails.each do |cocktail| %>
-    <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= image_path('mojito.jpg') %>)">
-      <%= link_to cocktail.name, cocktail_path(cocktail) %>
-    </div>
-  <% end %>
-  
-  <br>
-  <%= link_to "Add a new cocktail 🍸", new_cocktail_path %>
+  <div class="row">
+    <% @cocktails.each do |cocktail| %>
+      <div class="col-md-4 col-sm-12 col-lg-4 card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= cl_image_path cocktail.photos[0].key %>);">
+        <%= link_to cocktail.name, cocktail_path(cocktail), class:"white-btn" %>
+      </div>
+    <% end %>
+  </div>
 </div>
