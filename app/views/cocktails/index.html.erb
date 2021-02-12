@@ -1,8 +1,5 @@
-<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= image_path('cocktail.jpg')%>);">
-  <div class="container">
-    <h1>Cocktails 🍸</h1>
-  </div>
-</div>
+render :'banner'
+
 <div class="container">
   <% @cocktails.each do |cocktail| %>
     <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= image_path('mojito.jpg') %>)">
